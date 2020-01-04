@@ -20,9 +20,15 @@ public class App
 {
     public static void main( String[] args ) throws SecurityException, RollbackException, HeuristicMixedException, HeuristicRollbackException, SystemException
     {
+        
+    	  Configuration cfg=null;
+    	  SessionFactory factory=null;
+      	  Session ses=null;
+      	  Transaction tx=null;
+    	
         System.out.println( "Excec Starts" );
         Aliens ae = new Aliens();
-        ae.setId(104);
+        ae.setId(106);
         ae.setColor("Cyan");
         ae.setName("Jaggy");
         Address address = new Address();
@@ -30,14 +36,24 @@ public class App
         address.setPIN("411033");
         ae.setAddress(address);
         
-//        ServiceRegistry ser = new ServiceRegistryBuilder().applySetting(new Configuration().getProperties()., value)
-        SessionFactory sf = (SessionFactory) new Configuration().configure().addAnnotatedClass(Aliens.class).buildSessionFactory();
-        Session sess = sf.openSession();
-        sess.beginTransaction();
+		/*
+		 * // ServiceRegistry ser = new ServiceRegistryBuilder().applySetting(new
+		 * Configuration().getProperties()., value) SessionFactory sf = (SessionFactory)
+		 * new Configuration().configure().addAnnotatedClass(Aliens.class).
+		 * buildSessionFactory(); Session sess = sf.openSession();
+		 * sess.beginTransaction();
+		 */
         
-        sess.save(ae);
-        sess.getTransaction().commit();
-        sf.close();
-        System.out.println(ae);
+        
+      
+    		cfg=new Configuration().configure().addAnnotatedClass(Aliens.class);
+    		factory=cfg.buildSessionFactory();
+    		ses=factory.openSession();
+    		ses.beginTransaction();
+    		ses.save(ae);
+    		ses.getTransaction().commit();
+    		factory.close();
+    		System.out.println(ae);
+    
     }
 }
