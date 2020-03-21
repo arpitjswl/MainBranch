@@ -12,8 +12,18 @@
         <property name="hbm2ddl.auto">create</property>
         <property name="show_sql">true</property>
         
-         <mapping class="com.arpit.hibernate.UserDetails"></mapping>
-         <mapping class="com.arpit.hibernate.DemoIncrement"></mapping>
          
+         
+         
+       
+          
+          <mapping class="com.hibernate.answers.Question"/>   
+          <mapping class="com.hibernate.answers.Answer"/>
+          
+          
+          <mapping class="com.arpit.testcollection.Mohit"/>
+          <mapping class="com.arpit.testcollection.GirlFriends"/>
+          
     </session-factory>
 </hibernate-configuration>
+
