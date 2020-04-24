@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
@@ -12,7 +13,7 @@ import org.springframework.core.annotation.Order;
 
 @Entity
 public class Plans {
-	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "plan_id")
 	private Long id;
 	
@@ -36,10 +37,13 @@ public class Plans {
 	@Column(name = "insurance_provider")
 	private String insuranceProvider;
 	
+	
+	
+	
 	protected Plans() {}
 	
 	public Plans(String planName, Integer premium, Long coverage, Short coPayment, String planType,
-			String insuranceProvider) {
+			String insuranceProvider ) {
 		super();
 		this.planName = planName;
 		this.premium = premium;
@@ -48,6 +52,8 @@ public class Plans {
 		this.planType = planType;
 		this.insuranceProvider = insuranceProvider;
 	}
+	
+
 	public Long getId() {
 		return id;
 	}

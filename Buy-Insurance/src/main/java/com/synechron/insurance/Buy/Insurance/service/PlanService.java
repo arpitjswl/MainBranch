@@ -11,4 +11,5 @@ public interface PlanService {
 	public ResponseEntity<Object> createNewPlan(Plans plans);
 	public void updatePlans(Plans plans, Long id); 
 	public void deleteById(Long id);
+	public List<Plans> getCustomPlans();
 }

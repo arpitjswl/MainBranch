@@ -21,6 +21,7 @@ public class PlanServiceImpl implements PlanService {
 	@Autowired
 	private PlanRepository planRepo;
 	
+	
 	@Override
 	public List<Plans> getAllPlans() {
 		List<Plans> plans = planRepo.findAll();
@@ -67,5 +68,11 @@ public class PlanServiceImpl implements PlanService {
 			throw new InvalidIdPassed("Passed Id is not Present");
 		planRepo.deleteById(id);
 	}
+
+	@Override
+	public List<Plans> getCustomPlans(){
+		return planRepo.getCustomPlans();
+	}
+	
 }
 
