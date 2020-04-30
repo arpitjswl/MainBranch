@@ -14,6 +14,7 @@ import com.synechron.insurance.Buy.Insurance.entity.Plans;
 import com.synechron.insurance.Buy.Insurance.service.PlanService;
 
 @RestController
+//@RequestMapping(value = "/api")
 public class InsuranceController {
 	
 	@Autowired
